@@ -1,0 +1,340 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --base-color: rgb(42, 42, 53);
+    --base-variant:  rgba(42, 42, 53, 0.8);
+    --text-color: #e8e9ed;
+    --vid-container:#f9f9f9;
+    --vid-text: black;
+    --button-color:#4a90e2;
+    --border-bottom:rgb(101, 101, 121);
+    --table-border:#34495e;
+    --row-color:#e0e0e0;
+    --img-caption-color:rgb(149, 129, 202);
+    
+    
+}
+
+.lightmode{
+    --base-color: rgb(255, 255, 255);
+    --base-variant: rgba(255, 255, 255, 0.808);
+    --text-color: rgb(10, 10, 10);
+    --vid-container: #19191b;
+    --vid-text:white;
+    --button-color:#4a90e2;
+    --border-bottom:rgb(35, 35, 37);
+    --table-border:#344rgb(6, 7, 7);  
+    --row-color: black;
+    --img-caption-color: black;
+
+}
+@font-face {
+    font-family: 'ParryHotter';
+    src: url(../Fonts/ParryHotter.ttf) format('truetype');
+}
+
+
+
+body{
+    background-image: url(../Images/HarryPotterSunset.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+body, html{
+    margin: 0;
+    padding: 0;
+    height:100%;
+    font-size: 72.5%;
+
+}
+
+/* nav/header  */
+
+nav{
+   z-index: 4;;
+   position: sticky; 
+   top: 0;
+   background-color: var(--base-color);
+   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+   border-bottom:2px solid var(--border-bottom)  ;
+}
+
+nav ul{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li{
+    height: 50px;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color:var(--text-color);
+    font-size:2.1rem;
+}
+
+nav a:hover{
+    background-color:  rgb(64, 64, 80);
+}
+
+nav li:first-child{
+    margin-right: auto;
+}
+
+/* responsive header on the side */
+
+
+.sidebar{
+    position: fixed;
+    top:0;
+    right:0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: var(--base-variant);
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    backdrop-filter: blur(10px);
+}
+
+.sidebar li{
+    width:100%;
+}
+.sidebar a{
+    width:100%;
+}
+
+.menu-button{
+    display: none;
+}
+
+@media(max-width: 800px ){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display:block;
+    }
+}
+
+@media(max-width: 400px){
+    .sidebar{
+        width: 100%;
+    }
+}
+
+/* mainBody */
+
+.mainContainer{
+  min-height: 100vh; 
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x:hidden;
+
+}
+
+.mainBody{
+    background-color: var(--base-variant) ;
+    border-radius: 4px;
+    z-index: 2;
+    min-height: 100vh;
+    padding: 1rem 0 5rem 0 ;
+    margin: 8rem 2rem 3rem 2rem;
+    color: var(--text-color);
+    height: fit-content;
+    width: auto;
+    overflow-x:hidden;
+}
+
+.first-container{
+    padding: 2rem 0 1rem 6rem;
+    font-size: 3.7rem;
+    height:50px;
+    width:100%;
+
+}
+
+.second-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div{
+    font-size: 2rem;
+    padding: 2rem 3rem 2rem 3rem;
+    flex:1;
+    
+}
+
+
+
+.img-container{
+    width: 100%;
+    max-width: 600px;
+    margin-right: 3rem;
+    border: 3px solid #000000;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    padding: 0;
+
+}
+#MalfoyPortrait1{ 
+    display: block; /* Removes default image spacing */
+    width: 100%; /* Makes image fill container */
+    border-bottom: none; /* Removes bottom border if any */
+    margin-bottom: -3px; /* Pulls table up to overlap */
+    
+}
+
+
+/* table styling */ 
+table{
+    margin-top: -3px; 
+    margin: 0;
+    border-top:none;
+    width: 100%;
+    font-size: 1.5rem;
+    table-layout: auto;
+    border-collapse:collapse;
+}
+
+tr:has(th) {
+    background-color: #2c3e50; /* Dark blue-gray */
+    color: white;
+  }
+
+th {
+padding: 12px 15px;
+font-size: 1.2em;
+text-align: left;
+border: 2px solid var(--table-border); /* Slightly darker border */
+}
+
+td {
+padding: 8px 15px;
+border: none;
+vertical-align: top; /* Align content to top */
+
+}
+
+tr:not(:has(th)) {
+border-bottom: 1px solid var(--row-color); /* Light gray line between rows */
+}
+
+table tr:first-child th{
+background: rgb(56, 56, 126);
+color: #fff;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+
+
+  /* Remove border from last row */
+tr:last-child {
+    border-bottom: none;
+  }
+
+
+td img {
+max-width: 50%; /* Ensures image never exceeds cell width */
+height: auto; /* Maintains aspect ratio */
+display: block; /* Removes inline spacing */
+margin: 0 auto; /* Centers if there's extra space */
+}
+
+
+/* bio */
+
+
+.quote {
+    padding-left: 40px;
+    font-style: italic;
+    
+}
+
+
+
+
+
+#video-container {
+    border: 3px solid var(--vid-container);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 640px;
+    margin: 20px auto;
+    background-color: var(--vid-container);
+    text-align: center;
+  }
+  
+  #video-embed-wrapper {
+    position: relative;
+  }
+  
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid var(--button-color);
+    border-radius: 55%;         /* <-- this rounds it into a circle */
+    width: 50px;                /* <-- width and height must match */
+    height: 50px;
+    animation: spin 1s linear infinite;
+    z-index: 10;
+    display: none;
+  }
+  
+  
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1em;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #357ab8;
+  }
+  
+  
